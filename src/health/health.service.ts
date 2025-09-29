@@ -62,12 +62,12 @@ export class HealthService {
             return { status: 'ok', count: Array.isArray(data) ? data.length : null };
         } catch (e: any) {
             this.logger.error(`Supplier ${name} check failed`, e.stack, HealthService.name);
-            return { status: 'error', error: e.message };
+            return { status: 'error', error: e.message, url: url };
         }
     }
 
     async checkAll() {
-        const baseUrl = process.env.API_BASE || 'http://localhost:3000/api';
+        const baseUrl = 'http://localhost:3000/api';
 
         const suppliers: Record<string, any> = {};
         for (const s of config.suppliers) {

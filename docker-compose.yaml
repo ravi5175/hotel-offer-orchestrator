@@ -1,39 +1,7 @@
 version: "3.9"
 
 services:
-  api:
-    build: .
-    container_name: hotel-api
-    ports:
-      - "3000:3000"
-    environment:
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
-      - TEMPORAL_ADDRESS=temporal:7233
-      - TEMPORAL_TASK_QUEUE=hotel-orchestrator
-      - API_BASE=http://api:3000
-    depends_on:
-      - redis
-      - temporal
-    networks:
-      - orchestrator-net
 
-  worker:
-    build: .
-    container_name: hotel-worker
-    command: npm run worker
-    environment:
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
-      - TEMPORAL_ADDRESS=temporal:7233
-      - TEMPORAL_TASK_QUEUE=hotel-orchestrator
-      - API_BASE=http://api:3000
-    depends_on:
-      - temporal
-      - api
-      - redis
-    networks:
-      - orchestrator-net
 
   redis:
     image: redis:7-alpine
@@ -90,6 +58,40 @@ services:
       - "8080:8080"
     depends_on:
       - temporal
+    networks:
+      - orchestrator-net
+  
+  api:
+    build: .
+    container_name: hotel-api
+    ports:
+      - "3000:3000"
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - TEMPORAL_ADDRESS=temporal:7233
+      - TEMPORAL_TASK_QUEUE=hotel-orchestrator
+      - API_BASE=http://api:3000
+    depends_on:
+      - redis
+      - temporal
+    networks:
+      - orchestrator-net
+
+  worker:
+    build: .
+    container_name: hotel-worker
+    command: npm run worker
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - TEMPORAL_ADDRESS=temporal:7233
+      - TEMPORAL_TASK_QUEUE=hotel-orchestrator
+      - API_BASE=http://api:3000
+    depends_on:
+      - temporal
+      - api
+      - redis
     networks:
       - orchestrator-net
 

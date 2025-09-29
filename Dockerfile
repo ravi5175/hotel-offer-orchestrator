@@ -1,5 +1,5 @@
 # Use Node.js LTS
-FROM node:20-alpine
+FROM node:20-slim
 
 # Set working directory
 WORKDIR /usr/src/app
@@ -18,4 +18,4 @@ RUN npm run build
 EXPOSE 3000
 
 # Default command
-CMD ["npm", "run", "start:dev"]
+CMD ["npm", "run", "start:prod"]
