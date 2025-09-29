@@ -35,7 +35,26 @@
 			"name": "Supplier Hotels By Id",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/supplierA/hotels?city=delhi",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"supplierA",
+						"hotels"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "delhi"
+						}
+					]
+				}
 			},
 			"response": []
 		},
@@ -43,7 +62,40 @@
 			"name": "Get Hotels",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/hotels?city=mumbai",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"hotels"
+					],
+					"query": [
+						{
+							"key": "minPrice",
+							"value": "5000",
+							"disabled": true
+						},
+						{
+							"key": "maxPrice",
+							"value": "6000",
+							"disabled": true
+						},
+						{
+							"key": "city",
+							"value": "mumbai"
+						}
+					]
+				}
 			},
 			"response": []
 		}
