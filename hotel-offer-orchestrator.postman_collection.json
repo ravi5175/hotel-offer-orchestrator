@@ -1,0 +1,51 @@
+{
+	"info": {
+		"_postman_id": "fe2e683a-06fe-45b1-b10c-73fc4dee18fe",
+		"name": "hotel-offer-orchestrator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13758788",
+		"_collection_link": "https://chimta-backend.postman.co/workspace/Personal~39c269e5-8729-40c9-94c4-58d9de347fb8/collection/13758788-fe2e683a-06fe-45b1-b10c-73fc4dee18fe?action=share&source=collection_link&creator=13758788"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Supplier Hotels By Id",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get Hotels",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
